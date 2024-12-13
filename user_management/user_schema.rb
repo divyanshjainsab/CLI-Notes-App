@@ -12,7 +12,6 @@ module User
     menu_title("Notes App");
     # displaying list of available actions
     message_display;
-    @all_data = get_data;
   end
 
   def message_display
@@ -30,7 +29,7 @@ module User
 
   # Gets the input form user and take action upon them
   def user_action_taken
-    puts ('-'*50).green;
+    green_line;
     print "Enter option number: ".blue
 
     # get the user input
