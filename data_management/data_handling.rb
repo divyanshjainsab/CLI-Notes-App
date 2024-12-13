@@ -3,17 +3,7 @@ FILE_PATH = "data_management/data.json";
 
 
 module DataManupulation
-  def add_user
-    file = File.open(FILE_PATH,'r+');
-
-    file_data = JSON.parse(file.read());
-    p file_data;
-    file_data[0]["username"] = "Divyansh";
-    p file_data;
-    file.write(JSON.generate(file_data));
-    file.close;
-  end
-
+  
   def get_data
     File.open(FILE_PATH, 'r') do |file|
       # Reading and parsing the file content
