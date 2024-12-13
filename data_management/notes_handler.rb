@@ -41,7 +41,8 @@ module Notes
         when "5" 
             export_note;
         when "6" 
-            save_and_exit(@all_user_data);
+            save_data(@all_user_data);
+            exit;
         when "#"
             # resetting everything
             @user_notes = nil;
@@ -79,8 +80,8 @@ module Notes
         if note_num == 0 then 
             "As Entered Number wasn't Matched.\nNothing Deleted.";
         else 
-            @user_notes.delete(note_num - 1);
-            puts "Note Deleted Successfully.".orange;
+            @user_notes.delete_at(note_num - 1);
+            puts "Note Deleted Successfully.".red;
         end
         green_line;
         user_notes_options;

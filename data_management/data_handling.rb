@@ -28,13 +28,12 @@ module DataManupulation
   end
 
   # only for save and exit
-  def save_and_exit(data)
+  def save_data(data)
      File.open(FILE_PATH,'w') do |file| 
       # writing data to file
       file.write(JSON.generate(data));
     end
 
     menu_title("Thanks for Using me.")
-    exit;
   end
 end
