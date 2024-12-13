@@ -1,9 +1,7 @@
-require './data_management/data_handling.rb';
 require './user_management/user_schema.rb';
 
 class Main
   extend User;
-  extend DataManupulation;
 end
 
 # Main.append_data({
@@ -20,3 +18,4 @@ end
 # puts Main.get_data;
 
 Main.start;
+# p Main.get_data.filter {|user| user["name"] == "Divyansh Jain"}[0]["notes"];

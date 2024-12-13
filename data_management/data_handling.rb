@@ -1,7 +1,6 @@
 require "json";
 FILE_PATH = "data_management/data.json";
 
-
 module DataManupulation
   
   def get_data
@@ -28,4 +27,14 @@ module DataManupulation
     return nil;
   end
 
+  # only for save and exit
+  def save_and_exit(data)
+     File.open(FILE_PATH,'w') do |file| 
+      # writing data to file
+      file.write(JSON.generate(data));
+    end
+
+    menu_title("Thanks for Using me.")
+    exit;
+  end
 end

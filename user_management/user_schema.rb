@@ -1,13 +1,18 @@
 require './data_management/data_handling.rb';
+require './data_management/notes_handler.rb';
 require 'colorize'
 module User
 
   include DataManupulation;
+  include Notes
 
+  # all data of file
+  
   def start
     menu_title("Notes App");
     # displaying list of available actions
     message_display;
+    @all_data = get_data;
   end
 
   def message_display
@@ -111,13 +116,16 @@ module User
     isVerified = false;
     get_data.each do |user_info|
       # password is case sensitive but username isn't.
-      isVerified = true if user_info["name"].downcase == user[:name].downcase && user_info["password"] == user[:password];
-      # match found then leave.
-      break;
+      if user_info["name"].downcase == user[:name].downcase && user_info["password"] == user[:password] then
+        isVerified = true ;
+        # match found then leave.
+        break;
+      end
     end
     if isVerified then
       menu_title("Welcome #{user[:name].split(' ')[0]}");
-      # todo
+      # passing current user as an argument
+      user_initailize(user);
     else
       puts 'User Password or User Name is Incorrect'.center(50).red;
       user_login;
